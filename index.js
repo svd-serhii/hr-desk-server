@@ -7,7 +7,6 @@ const app = require("./app");
 
 const { PORT, DB_URI } = process.env;
 
-//IIFE
 (async () => {
   try {
     await connectDB(DB_URI);
