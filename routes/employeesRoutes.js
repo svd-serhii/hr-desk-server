@@ -6,16 +6,20 @@ const {
   createEmployee,
   updateEmployee,
   deleteEmployee,
-} = require("../controllers/tasksControllers");
+} = require("../controllers/employeesControllers");
 
 const { validateBody } = require("../utils/validateBody");
 
-const { createTaskSchema, updateTaskSchema } = require("../utils/validation/taskValidationSchemas");
+const { createEmployeeSchema, updateEmployeeSchema } = require("../utils/validation/employeesVatidationSchemas");
 
 const router = express.Router();
 
-router.route("/").get(getTasks).post(validateBody(createTaskSchema), createTask);
+router.route("/").get(getEmployees).post(validateBody(createEmployeeSchema), createEmployee);
 
-router.route("/:taskId").get(getTask).patch(validateBody(updateTaskSchema), updateTask).delete(deleteTask);
+router
+  .route("/:employeeId")
+  .get(getEmployee)
+  .patch(validateBody(updateEmployeeSchema), updateEmployee)
+  .delete(deleteEmployee);
 
-module.exports = { tasksRouter: router };
+module.exports = { employeesRouter: router };

@@ -1,6 +1,6 @@
 const express = require("express");
 
-// const { tasksRouter } = require("./routes/tasksRouter");
+const { employeesRouter } = require("./routes/employeesRoutes");
 
 const { errorHandler } = require("./middlewares/errorHandler");
 
@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-// app.use("/tasks", tasksRouter);
+app.use("/employees", employeesRouter);
 
 app.use(notFoundHandler);
 
